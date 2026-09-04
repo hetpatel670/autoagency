@@ -101,25 +101,25 @@ export const UseCasesSection: React.FC<UseCasesSectionProps> = ({ onNavigateToAs
   const currentCategoryData = categories.find(c => c.name === activeCategory) || categories[0];
 
   return (
-    <section id="use-cases" className="py-24 bg-brand-lightBg text-slate-900 relative overflow-hidden">
+    <section id="use-cases" className="py-16 sm:py-24 bg-brand-lightBg text-slate-900 relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-8 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/10 text-brand-indigo text-xs font-mono font-bold uppercase tracking-wider">
             PRACTICAL APPLICATIONS
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight font-sans">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight font-sans px-2">
             What Could Your Business Automate?
           </h2>
-          <p className="text-lg text-slate-600 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto px-2">
             Select a business function below to explore real-world automation scenarios.
           </p>
         </div>
 
-        {/* Category Tabs Strip */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        {/* Category Tabs Strip - Touch-friendly Horizontal Scroll on Mobile */}
+        <div className="flex lg:flex-wrap items-center lg:justify-center gap-2 mb-8 sm:mb-12 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar">
           {categories.map((cat, idx) => {
             const Icon = cat.icon;
             const isActive = activeCategory === cat.name;
@@ -128,10 +128,10 @@ export const UseCasesSection: React.FC<UseCasesSectionProps> = ({ onNavigateToAs
               <button
                 key={idx}
                 onClick={() => setActiveCategory(cat.name)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                className={`flex-shrink-0 min-h-[44px] flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                   isActive 
-                    ? 'bg-slate-950 text-white shadow-lg scale-105' 
-                    : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'
+                    ? 'bg-slate-950 text-white shadow-lg scale-102 sm:scale-105 ring-2 ring-brand-indigo/30' 
+                    : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200 active:scale-95'
                 }`}
               >
                 <Icon className="w-4 h-4" style={{ color: isActive ? '#00F0FF' : cat.color }} />
@@ -142,20 +142,20 @@ export const UseCasesSection: React.FC<UseCasesSectionProps> = ({ onNavigateToAs
         </div>
 
         {/* Use Case Items Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
           {currentCategoryData.items.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex items-start gap-4 group"
+              className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex items-start gap-3.5 sm:gap-4 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-100 group-hover:bg-slate-950 text-slate-900 group-hover:text-brand-accent flex items-center justify-center shrink-0 transition-colors">
-                <CheckCircle2 className="w-5 h-5" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 group-hover:bg-slate-950 text-slate-900 group-hover:text-brand-accent flex items-center justify-center shrink-0 transition-colors">
+                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div className="space-y-1">
-                <h3 className="text-lg font-bold text-slate-950 font-sans group-hover:text-brand-indigo transition-colors">
+              <div className="space-y-1 text-left">
+                <h3 className="text-base sm:text-lg font-bold text-slate-950 font-sans group-hover:text-brand-indigo transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -164,10 +164,10 @@ export const UseCasesSection: React.FC<UseCasesSectionProps> = ({ onNavigateToAs
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 sm:mt-12 text-center px-4">
           <button
             onClick={onNavigateToAssessment}
-            className="px-6 py-3 rounded-xl bg-slate-950 text-white font-bold text-sm hover:bg-brand-indigo transition-colors inline-flex items-center gap-2 shadow-lg"
+            className="w-full sm:w-auto min-h-[48px] px-6 py-3.5 rounded-xl bg-slate-950 text-white font-bold text-xs sm:text-sm hover:bg-brand-indigo active:scale-98 transition-all inline-flex items-center justify-center gap-2 shadow-lg cursor-pointer"
           >
             <span>Have a process in mind for your department?</span>
             <ArrowRight className="w-4 h-4 text-brand-accent" />

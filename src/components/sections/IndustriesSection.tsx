@@ -7,7 +7,8 @@ import {
   Truck, 
   CheckSquare, 
   FileText, 
-  ShieldCheck 
+  ShieldCheck,
+  Sparkles 
 } from 'lucide-react';
 
 export const IndustriesSection: React.FC = () => {
@@ -55,36 +56,37 @@ export const IndustriesSection: React.FC = () => {
   ];
 
   return (
-    <section id="industries" className="py-24 bg-brand-dark text-white relative overflow-hidden border-t border-white/5">
+    <section id="industries" className="py-16 sm:py-24 bg-brand-dark text-white relative overflow-hidden border-t border-white/5">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel-dark border border-brand-accent/30 text-brand-accent text-xs font-mono font-bold uppercase tracking-wider">
-            FUNCTIONAL SCOPE
+            <Sparkles className="w-3.5 h-3.5 text-brand-accent" />
+            <span>FUNCTIONAL SCOPE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight font-sans">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight font-sans px-2">
             Automation Across the Business
           </h2>
-          <p className="text-lg text-slate-300 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto px-2">
             Every business unit performs repetitive manual work. We design tailored solutions for your operational ecosystem.
           </p>
         </div>
 
         {/* Function Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {domains.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="glass-panel-dark p-6 rounded-2xl border border-white/10 hover:border-brand-accent/40 transition-all duration-300 group"
+                className="glass-panel-dark p-5 sm:p-6 rounded-2xl border border-white/10 hover:border-brand-accent/40 transition-all duration-300 group text-left"
               >
-                <div className="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center mb-3.5 sm:mb-4 group-hover:scale-110 transition-transform">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2 font-sans group-hover:text-brand-accent transition-colors">
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2 font-sans group-hover:text-brand-accent transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-xs text-slate-300 leading-relaxed">

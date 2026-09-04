@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { HeroSection } from './components/sections/HeroSection';
 import { ProblemSection } from './components/sections/ProblemSection';
@@ -16,6 +15,7 @@ import { AboutSection } from './components/sections/AboutSection';
 import { FinalCTASection } from './components/sections/FinalCTASection';
 import { AssessmentForm } from './components/sections/AssessmentForm';
 import { Footer } from './components/layout/Footer';
+import { FloatingWhatsApp } from './components/layout/FloatingWhatsApp';
 
 export function App() {
   const scrollToAssessment = () => {
@@ -51,6 +51,9 @@ export function App() {
 
       {/* Footer */}
       <Footer onNavigateToAssessment={scrollToAssessment} />
+
+      {/* Floating WhatsApp Quick Action for Mobile/Tablet/Desktop */}
+      <FloatingWhatsApp />
     </div>
   );
 }

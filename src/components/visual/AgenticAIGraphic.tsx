@@ -10,8 +10,7 @@ import {
   FileText, 
   Server, 
   Workflow, 
-  ShieldAlert,
-  Sparkles
+  ShieldAlert
 } from 'lucide-react';
 
 export const AgenticAIGraphic: React.FC = () => {
@@ -34,25 +33,25 @@ export const AgenticAIGraphic: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto glass-panel-dark p-8 sm:p-12 rounded-3xl border border-brand-accent/30 shadow-2xl relative overflow-hidden">
+    <div className="w-full max-w-4xl mx-auto glass-panel-dark p-5 sm:p-8 md:p-12 rounded-3xl border border-brand-accent/30 shadow-2xl relative overflow-hidden">
       
       {/* Background glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/10 via-transparent to-brand-indigo/10 pointer-events-none" />
 
       {/* Top Banner: Core Philosophy */}
-      <div className="flex items-center justify-center gap-3 mb-12">
-        <div className="px-4 py-2 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent font-mono text-xs font-bold tracking-widest flex items-center gap-2">
-          <ShieldAlert className="w-4 h-4 text-brand-accent" />
+      <div className="flex items-center justify-center gap-3 mb-8 sm:mb-12">
+        <div className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent font-mono text-[10px] sm:text-xs font-bold tracking-wider sm:tracking-widest flex items-center gap-2 text-center">
+          <ShieldAlert className="w-4 h-4 text-brand-accent shrink-0" />
           <span>CONCEPT: AI + AUTOMATION + HUMAN OVERSIGHT</span>
         </div>
       </div>
 
       {/* Central Agent Node & Radial Capabilities */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
         
         {/* Left: Capability Nodes */}
-        <div className="lg:col-span-4 space-y-3">
-          <div className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-2 text-left">
+        <div className="lg:col-span-4 space-y-2.5 sm:space-y-3 order-2 lg:order-1">
+          <div className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-2 text-left font-semibold">
             Cognitive Functions
           </div>
           {capabilities.slice(0, 3).map((cap, idx) => {
@@ -60,12 +59,12 @@ export const AgenticAIGraphic: React.FC = () => {
             return (
               <div 
                 key={idx}
-                className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition-colors group"
+                className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition-colors group text-left"
               >
-                <div className="p-2 rounded-lg bg-black/40 text-brand-accent group-hover:scale-110 transition-transform">
+                <div className="p-2 rounded-lg bg-black/40 text-brand-accent group-hover:scale-110 transition-transform shrink-0">
                   <Icon className="w-4 h-4" />
                 </div>
-                <div className="text-left">
+                <div>
                   <div className="text-xs font-bold text-white font-mono">{cap.label}</div>
                   <div className="text-[11px] text-slate-400">{cap.desc}</div>
                 </div>
@@ -75,29 +74,29 @@ export const AgenticAIGraphic: React.FC = () => {
         </div>
 
         {/* Center: Agentic Core Node */}
-        <div className="lg:col-span-4 flex flex-col items-center justify-center my-4 lg:my-0">
-          <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-[#0F172A] to-[#0B101D] border-2 border-brand-accent shadow-glow-cyan flex flex-col items-center justify-center p-4 text-center group cursor-pointer">
+        <div className="lg:col-span-4 flex flex-col items-center justify-center my-2 lg:my-0 order-1 lg:order-2">
+          <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-[#0F172A] to-[#0B101D] border-2 border-brand-accent shadow-glow-cyan flex flex-col items-center justify-center p-4 text-center group cursor-pointer">
             <div className="absolute inset-0 rounded-full bg-brand-accent/20 animate-ping opacity-30 pointer-events-none" />
-            <div className="w-12 h-12 rounded-2xl bg-brand-accent text-slate-950 flex items-center justify-center mb-2 shadow-lg">
-              <Bot className="w-7 h-7 text-slate-950 animate-bounce" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-brand-accent text-slate-950 flex items-center justify-center mb-1.5 sm:mb-2 shadow-lg">
+              <Bot className="w-6 h-6 sm:w-7 sm:h-7 text-slate-950 animate-bounce" />
             </div>
-            <span className="text-sm font-extrabold text-white font-mono tracking-wider">
+            <span className="text-xs sm:text-sm font-extrabold text-white font-mono tracking-wider">
               AGENTIC AI
             </span>
-            <span className="text-[10px] text-brand-accent font-mono mt-0.5">
+            <span className="text-[9px] sm:text-[10px] text-brand-accent font-mono mt-0.5 font-bold">
               Reasoning Engine
             </span>
           </div>
 
-          <div className="mt-4 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] font-mono font-semibold flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="mt-3 sm:mt-4 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-[11px] font-mono font-semibold flex items-center gap-1.5 text-center">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
             <span>Defined Controls & Safety Guardrails</span>
           </div>
         </div>
 
         {/* Right: Capability Nodes */}
-        <div className="lg:col-span-4 space-y-3">
-          <div className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-2 text-left">
+        <div className="lg:col-span-4 space-y-2.5 sm:space-y-3 order-3">
+          <div className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-2 text-left font-semibold">
             Execution & Escalate
           </div>
           {capabilities.slice(3, 6).map((cap, idx) => {
@@ -105,12 +104,12 @@ export const AgenticAIGraphic: React.FC = () => {
             return (
               <div 
                 key={idx}
-                className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition-colors group"
+                className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition-colors group text-left"
               >
-                <div className="p-2 rounded-lg bg-black/40 text-brand-accent group-hover:scale-110 transition-transform">
+                <div className="p-2 rounded-lg bg-black/40 text-brand-accent group-hover:scale-110 transition-transform shrink-0">
                   <Icon className="w-4 h-4" />
                 </div>
-                <div className="text-left">
+                <div>
                   <div className="text-xs font-bold text-white font-mono">{cap.label}</div>
                   <div className="text-[11px] text-slate-400">{cap.desc}</div>
                 </div>
@@ -122,15 +121,15 @@ export const AgenticAIGraphic: React.FC = () => {
       </div>
 
       {/* Bottom Connected Systems Strip */}
-      <div className="mt-10 pt-8 border-t border-white/10">
-        <div className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-4">
+      <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white/10">
+        <div className="text-[10px] sm:text-xs font-mono text-slate-400 uppercase tracking-widest mb-3 sm:mb-4 text-center sm:text-left font-semibold">
           Integrated Business Knowledge & Execution Interfaces
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3">
           {connectedSystems.map((sys, idx) => {
             const Icon = sys.icon;
             return (
-              <div key={idx} className="flex items-center gap-2 p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300">
+              <div key={idx} className="flex items-center gap-2 p-2 sm:p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300">
                 <Icon className="w-3.5 h-3.5 text-brand-accent shrink-0" />
                 <span className="truncate">{sys.name}</span>
               </div>
