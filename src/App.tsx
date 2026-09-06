@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { HeroSection } from './components/sections/HeroSection';
 import { ProblemSection } from './components/sections/ProblemSection';
@@ -18,6 +19,14 @@ import { Footer } from './components/layout/Footer';
 import { FloatingWhatsApp } from './components/layout/FloatingWhatsApp';
 
 export function App() {
+  // Ensure the page always starts at the top on initial load / refresh
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
   const scrollToAssessment = () => {
     const el = document.getElementById('assessment');
     if (el) {

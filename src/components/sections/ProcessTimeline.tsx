@@ -100,15 +100,23 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ onNavigateToAs
     }
   ];
 
-  // Auto-scroll active tab into view on mobile/tablet
+  const isFirstRender = useRef(true);
+
+  // Auto-scroll active tab into view horizontally on mobile/tablet without scrolling the window
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
     if (scrollContainerRef.current) {
       const activeEl = scrollContainerRef.current.children[activeStage] as HTMLElement;
       if (activeEl) {
-        activeEl.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center'
+        const container = scrollContainerRef.current;
+        const targetScrollLeft = activeEl.offsetLeft - (container.clientWidth / 2) + (activeEl.clientWidth / 2);
+        container.scrollTo({
+          left: Math.max(0, targetScrollLeft),
+          behavior: 'smooth'
         });
       }
     }
